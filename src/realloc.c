@@ -19,7 +19,7 @@ void *vector_realloc(void *vector, size_t new_capacity)
     metadata = GET_METADATA(vector);
     if (new_capacity < metadata->length)
         return vector;
-    metadata = realloc(metadata, 
+    metadata = realloc(metadata,
         sizeof(metadata_t) + metadata->data_size * new_capacity);
     if (metadata == NULL) {
         vector_destroy(vector);
