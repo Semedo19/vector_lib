@@ -5,7 +5,9 @@
 ## Makefile
 ##
 
-SRC = 
+SRC = $(addprefix src/, \
+	create.c \
+	destroy.c)
 
 OBJ = $(SRC:.c=.o)
 
