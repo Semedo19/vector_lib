@@ -7,7 +7,9 @@
 
 SRC = $(addprefix src/, \
 	create.c \
-	destroy.c)
+	destroy.c \
+	realloc.c \
+	push_back.c)
 
 OBJ = $(SRC:.c=.o)
 
@@ -24,7 +26,8 @@ $(NAME):    $(OBJ)
 
 deploy: $(NAME)
 	cp $(NAME) ../
-	cp include/vector.h ../../include/
+	cp include/vector.h ../../include/vector.h
+	cp include/vector_priv.h ../../include/vector_priv.h
 
 clean:
 	$(RM) $(OBJ)
@@ -33,6 +36,7 @@ fclean: clean
 	$(RM) $(NAME)
 	$(RM) ../$(NAME)
 	$(RM) ../../include/vector.h
+	$(RM) ../../include/vector_priv.h
 
 re: fclean all
 

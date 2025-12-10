@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include "vector.h"
+#include "vector_priv.h"
 
 void vector_destroy(void *vector)
 {

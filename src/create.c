@@ -7,13 +7,13 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-#include "vector.h"
+#include "vector_priv.h"
 
 void *vector_create(size_t data_size, size_t initial_capacity)
 {
     metadata_t *metadata = NULL;
 
-    if (data_size <= 0 || initial_capacity <= 0)
+    if (data_size == 0 || initial_capacity == 0)
         return NULL;
     metadata = calloc(sizeof(metadata_t) + data_size * initial_capacity, 1);
     if (metadata == NULL)
@@ -22,5 +22,5 @@ void *vector_create(size_t data_size, size_t initial_capacity)
     metadata->initial_capacity = initial_capacity;
     metadata->capacity = initial_capacity;
     metadata->length = 0;
-    return (void *)GET_VECTOR(metadata);
+    return (void *)(GET_VECTOR(metadata));
 }

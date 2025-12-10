@@ -8,18 +8,10 @@
 #ifndef VECTOR_H
     #define VECTOR_H
     #include <unistd.h>
-
-typedef struct metadata_s {
-    size_t data_size;
-    size_t initial_capacity;
-    size_t capacity;
-    size_t length;
-} metadata_t;
-
-    #define GET_METADATA(vector)((char *)(vector) - sizeof(metadata_t))
-    #define GET_VECTOR(metadata)((char *)(metadata) + sizeof(metadata_t))
+    #include "vector_priv.h"
 
 void *vector_create(size_t data_size, size_t initial_capacity);
 void vector_destroy(void *vector);
 
+void *vector_push_back(void *vector, void *data);
 #endif
