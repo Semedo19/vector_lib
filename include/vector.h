@@ -9,14 +9,14 @@
     #define VECTOR_H
     #include <unistd.h>
 
-typedef struct vector_s {
+typedef struct metadata_s {
     size_t data_size;
     size_t initial_capacity;
     size_t capacity;
     size_t length;
-} vector_t;
+} metadata_t;
 
-    #define VECTOR_INFO(list)((char *)(list) - sizeof(vector_t))
-    #define VECTOR_LIST(info)((char *)(info) + sizeof(vector_t))
+    #define GET_METADATA(vector)((char *)(vector) - sizeof(metadata_t))
+    #define GET_VECTOR(metadata)((char *)(metadata) + sizeof(metadata_t))
 
 #endif
