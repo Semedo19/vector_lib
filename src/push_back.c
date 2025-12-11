@@ -8,22 +8,18 @@
 #include <string.h>
 #include "vector_priv.h"
 
-void *vector_push_back(void *vector, void *data)
+void *vector_push_back(void *vector, void *data, size_t nmemb)
 {
     metadata_t *metadata = NULL;
 
-    if (!vector || !data)
-        return vector;
+    if (vector == NULL || data == NULL || nmemb == 0)
+        return NULL;
+    vector = vector_expand(vector, nmemb);
+    if (vector == NULL)
+        return NULL;
     metadata = GET_METADATA(vector);
-    if (metadata->length >= metadata->capacity) {
-        vector = vector_realloc(vector,
-            metadata->capacity + metadata->initial_capacity);
-        if (vector == NULL)
-            return NULL;
-        metadata = GET_METADATA(vector);
-    }
     memcpy((char *)vector + metadata->data_size * metadata->length,
-        data, metadata->data_size);
-    ++(metadata->length);
+        data, metadata->data_size * nmemb);
+    metadata->length += nmemb;
     return vector;
 }

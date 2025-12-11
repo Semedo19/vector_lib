@@ -11,7 +11,6 @@
 
 typedef struct metadata_s {
     size_t data_size;
-    size_t initial_capacity;
     size_t capacity;
     size_t length;
 } metadata_t;
@@ -19,5 +18,5 @@ typedef struct metadata_s {
     #define GET_METADATA(vector)((metadata_t *)(vector) - 1)
     #define GET_VECTOR(metadata)((char *)(metadata) + sizeof(metadata_t))
 
-void *vector_realloc(void *vector, size_t new_capacity);
+void *vector_expand(void *vector, size_t nmemb);
 #endif

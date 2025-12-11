@@ -19,7 +19,6 @@ void *vector_create(size_t data_size, size_t initial_capacity)
     if (metadata == NULL)
         return NULL;
     metadata->data_size = data_size;
-    metadata->initial_capacity = initial_capacity;
     metadata->capacity = initial_capacity;
     metadata->length = 0;
     return (void *)(GET_VECTOR(metadata));
