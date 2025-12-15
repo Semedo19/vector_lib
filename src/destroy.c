@@ -11,5 +11,5 @@
 void vector_destroy(void *vector)
 {
     if (vector != NULL)
-        free(GET_METADATA(vector));
+        free(get_metadata(vector));
 }

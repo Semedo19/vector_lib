@@ -6,6 +6,7 @@
 ##
 
 SRC = $(addprefix src/, \
+	metadata.c \
 	create.c \
 	destroy.c \
 	realloc.c \

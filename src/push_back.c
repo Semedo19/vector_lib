@@ -17,7 +17,7 @@ void *vector_push_back(void *vector, void *data, size_t nmemb)
     vector = vector_expand(vector, nmemb);
     if (vector == NULL)
         return NULL;
-    metadata = GET_METADATA(vector);
+    metadata = get_metadata(vector);
     memcpy((char *)vector + metadata->data_size * metadata->length,
         data, metadata->data_size * nmemb);
     metadata->length += nmemb;

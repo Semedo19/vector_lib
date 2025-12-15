@@ -16,7 +16,7 @@ void *vector_realloc(void *vector, size_t new_capacity)
 
     if (vector == NULL || new_capacity == 0)
         return NULL;
-    metadata = GET_METADATA(vector);
+    metadata = get_metadata(vector);
     if (new_capacity < metadata->length)
         return NULL;
     if (SIZE_MAX / new_capacity < metadata->data_size)
@@ -26,7 +26,7 @@ void *vector_realloc(void *vector, size_t new_capacity)
     if (metadata == NULL)
         return NULL;
     metadata->capacity = new_capacity;
-    return GET_VECTOR(metadata);
+    return get_vector(metadata);
 }
 
 void *vector_expand(void *vector, size_t nmemb)
@@ -36,7 +36,7 @@ void *vector_expand(void *vector, size_t nmemb)
 
     if (vector == NULL || nmemb == 0)
         return NULL;
-    metadata = GET_METADATA(vector);
+    metadata = get_metadata(vector);
     if (SIZE_MAX - nmemb < metadata->length)
         return NULL;
     if (metadata->length + nmemb > metadata->capacity) {
@@ -48,7 +48,7 @@ void *vector_expand(void *vector, size_t nmemb)
         vector = vector_realloc(vector, new_capacity);
         if (vector == NULL)
             return NULL;
-        metadata = GET_METADATA(vector);
+        metadata = get_metadata(vector);
     }
     return vector;
 }
