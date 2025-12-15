@@ -21,5 +21,5 @@ void *vector_create(size_t data_size, size_t initial_capacity)
     metadata->data_size = data_size;
     metadata->capacity = initial_capacity;
     metadata->length = 0;
-    return (void *)(get_vector(metadata));
+    return get_vector(metadata);
 }
