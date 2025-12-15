@@ -16,7 +16,7 @@ OBJ = $(SRC:.c=.o)
 
 NAME = libvector.a
 
-CPPFLAGS = -iquote./include
+CPPFLAGS = -iquote./include -iquote./src
 
 CFLAGS += -Wall -Wextra
 
@@ -28,7 +28,6 @@ $(NAME):    $(OBJ)
 deploy: $(NAME)
 	cp $(NAME) ../
 	cp include/vector.h ../../include/vector.h
-	cp include/vector_priv.h ../../include/vector_priv.h
 
 clean:
 	$(RM) $(OBJ)
@@ -37,7 +36,6 @@ fclean: clean
 	$(RM) $(NAME)
 	$(RM) ../$(NAME)
 	$(RM) ../../include/vector.h
-	$(RM) ../../include/vector_priv.h
 
 re: fclean all
 

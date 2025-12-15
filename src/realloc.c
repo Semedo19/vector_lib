@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "vector_priv.h"
+#include "_vector.h"
 
 void *vector_realloc(void *vector, size_t new_capacity)
 {

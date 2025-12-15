@@ -6,7 +6,7 @@
 */
 
 #include <string.h>
-#include "vector_priv.h"
+#include "_vector.h"
 
 void *vector_push_back(void *vector, void *data, size_t nmemb)
 {

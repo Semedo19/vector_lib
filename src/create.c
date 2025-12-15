@@ -7,7 +7,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-#include "vector_priv.h"
+#include "_vector.h"
 
 void *vector_create(size_t data_size, size_t initial_capacity)
 {

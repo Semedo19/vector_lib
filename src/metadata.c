@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "vector_priv.h"
+#include "_vector.h"
 
 void *get_metadata(void *vector)
 {

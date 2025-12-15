@@ -5,8 +5,8 @@
 ** header file
 */
 
-#ifndef VECTOR_PRIV_H
-    #define VECTOR_PRIV_H
+#ifndef _VECTOR_H
+    #define _VECTOR_H
     #include <unistd.h>
 
 typedef struct metadata_s {
